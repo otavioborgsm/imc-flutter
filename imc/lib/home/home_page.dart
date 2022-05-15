@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                     end: FractionalOffset(1.0, 0.0),
                     stops: [0.0, 1.0],
                     tileMode: TileMode.clamp),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(16),
                   ),
                   width: 400,
                   child: ElevatedButton(
