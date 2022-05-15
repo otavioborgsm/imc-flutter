@@ -32,6 +32,13 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  void calculatorImc() {
+    num resultNumber = (num.parse(controllerWeight.text) / 
+      (num.parse(controllerHeight.text) * num.parse(controllerHeight.text)));
+  
+    resultImc = resultNumber;  
+  }
+
   @override
   Widget build(BuildContext context){
     return SafeArea(
@@ -99,10 +106,7 @@ class _HomePageState extends State<HomePage> {
                   child: ElevatedButton(
                     onPressed: () {
                       setState(() {
-                        num resultNumber = (num.parse(controllerWeight.text) / 
-                        (num.parse(controllerHeight.text) * num.parse(controllerHeight.text)));
-                      
-                        resultImc = resultNumber;  
+                        calculatorImc();
                         selectedOptionResultImc();         
                       });
                     },
