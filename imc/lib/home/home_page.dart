@@ -11,7 +11,26 @@ class _HomePageState extends State<HomePage> {
 
   TextEditingController controllerWeight = TextEditingController();
   TextEditingController controllerHeight = TextEditingController();
-  String resultImc = '';
+  num resultImc = 0;
+  String optionsResultImc = '';
+
+  void selectedOptionResultImc() {
+    if(resultImc >= 5 && resultImc <= 16.9){
+      optionsResultImc = 'Muito abaixo do peso.'; 
+    } else if ( resultImc >= 17 && resultImc <= 18.4){
+      optionsResultImc = 'Abaixo do peso.';
+    } else if ( resultImc >= 18.5 && resultImc <= 24.9){
+      optionsResultImc = 'Peso normal.';
+    } else if ( resultImc >= 25 && resultImc <= 29.9){
+      optionsResultImc = 'Acima do peso.';
+    } else if ( resultImc >= 30 && resultImc <= 34.9){
+      optionsResultImc = 'Obesidade grau I';
+    } else if ( resultImc >= 35 && resultImc <= 40){
+      optionsResultImc = 'Obesidade grau II';
+    } else if ( resultImc > 40){
+      optionsResultImc = 'Obesidade grau III';
+    }
+  }
 
   @override
   Widget build(BuildContext context){
@@ -42,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                   'Vamos calcular seu índice de massa corporal?',
                   style:TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 22,
+                    fontSize: 20,
                   )
                 ),
                 const SizedBox(height: 16),
@@ -69,8 +88,10 @@ class _HomePageState extends State<HomePage> {
                     )
                   ),
                 ),
-              const SizedBox(height: 32, ),
-              Text(resultImc, style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
+              const SizedBox(height: 24, ),
+              Text(resultImc.toStringAsFixed(1), style: const TextStyle(fontSize: 16,),),
+              const SizedBox(height: 24, ),
+              Text(optionsResultImc, style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
 
               const SizedBox(height: 32, ),
                 Container(
@@ -81,7 +102,8 @@ class _HomePageState extends State<HomePage> {
                         num resultNumber = (num.parse(controllerWeight.text) / 
                         (num.parse(controllerHeight.text) * num.parse(controllerHeight.text)));
                       
-                        resultImc = resultNumber.toStringAsFixed(2);
+                        resultImc = resultNumber;  
+                        selectedOptionResultImc();         
                       });
                     },
                     child:const Text('Calcular')),
