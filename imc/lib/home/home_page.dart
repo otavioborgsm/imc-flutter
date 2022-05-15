@@ -46,7 +46,8 @@ class _HomePageState extends State<HomePage> {
                   )
                 ),
                 const SizedBox(height: 16),
-                TextFormField(                  
+                TextFormField(
+                  keyboardType: TextInputType.numberWithOptions(),                  
                   controller: controllerHeight,
                   decoration: const InputDecoration(
                     labelText: 'Informe a sua altura:',
@@ -58,6 +59,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
+                  keyboardType: TextInputType.numberWithOptions(),              
                   controller: controllerWeight,
                   decoration: const InputDecoration(
                     labelText: 'Informe seu peso:',
@@ -79,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                         num resultNumber = (num.parse(controllerWeight.text) / 
                         (num.parse(controllerHeight.text) * num.parse(controllerHeight.text)));
                       
-                        resultImc = resultNumber.toString();
+                        resultImc = resultNumber.toStringAsFixed(2);
                       });
                     },
                     child:const Text('Calcular')),
