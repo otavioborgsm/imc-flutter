@@ -34,10 +34,10 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: <Widget>[
                 const Text(
-                  'Calculadora de IMC',
+                  'Vamos calcular seu índice de massa corporal?',
                   style:TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 36,
+                    fontSize: 22,
                   )
                 ),
                 const SizedBox(height: 16),
@@ -59,7 +59,16 @@ class _HomePageState extends State<HomePage> {
                       borderRadius: BorderRadius.all(Radius.circular(16.0))
                     )
                   ),
-                )
+                ),
+              const SizedBox(height: 16, ),
+                Container(
+                  width: 400,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      print('click click');
+                    },
+                    child:const Text('Calcular')),
+                ),
               ],
             ),
           ),
