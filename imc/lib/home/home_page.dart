@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                   )
                 ),
                 const SizedBox(height: 16),
-                TextFormField(
+                TextFormField(                  
                   controller: controllerHeight,
                   decoration: const InputDecoration(
                     labelText: 'Informe a sua altura:',
@@ -67,12 +67,20 @@ class _HomePageState extends State<HomePage> {
                     )
                   ),
                 ),
-              const SizedBox(height: 16, ),
+              const SizedBox(height: 32, ),
+              Text(resultImc, style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
+
+              const SizedBox(height: 32, ),
                 Container(
                   width: 400,
                   child: ElevatedButton(
                     onPressed: () {
-                      print('click click');
+                      setState(() {
+                        num resultNumber = (num.parse(controllerWeight.text) / 
+                        (num.parse(controllerHeight.text) * num.parse(controllerHeight.text)));
+                      
+                        resultImc = resultNumber.toString();
+                      });
                     },
                     child:const Text('Calcular')),
                 ),
