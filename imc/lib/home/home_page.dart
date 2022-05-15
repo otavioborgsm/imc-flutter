@@ -102,15 +102,31 @@ class _HomePageState extends State<HomePage> {
 
               const SizedBox(height: 32, ),
                 Container(
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                    colors: [
+                      Color(0xFF3366FF),
+                      Color(0xFF00CCFF),
+                    ],
+                    begin: FractionalOffset(0.0, 0.0),
+                    end: FractionalOffset(1.0, 0.0),
+                    stops: [0.0, 1.0],
+                    tileMode: TileMode.clamp),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                   width: 400,
                   child: ElevatedButton(
+                    style: ButtonStyle(                      
+                      backgroundColor: MaterialStateProperty.all(Colors.transparent),
+                      shadowColor: MaterialStateProperty.all(Colors.transparent),
+                    ),
                     onPressed: () {
                       setState(() {
                         calculatorImc();
                         selectedOptionResultImc();         
                       });
                     },
-                    child:const Text('Calcular')),
+                    child:const Text('CALCULAR')),
                 ),
               ],
             ),
