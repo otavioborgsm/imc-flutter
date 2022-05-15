@@ -8,6 +8,11 @@ class HomePage extends StatefulWidget{
 }
 
 class _HomePageState extends State<HomePage> {
+
+  TextEditingController controllerWeight = TextEditingController();
+  TextEditingController controllerHeight = TextEditingController();
+  String resultImc = '';
+
   @override
   Widget build(BuildContext context){
     return SafeArea(
@@ -42,6 +47,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
+                  controller: controllerHeight,
                   decoration: const InputDecoration(
                     labelText: 'Informe a sua altura:',
                     hintText: 'Ex: 1.80m',
@@ -52,6 +58,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
+                  controller: controllerWeight,
                   decoration: const InputDecoration(
                     labelText: 'Informe seu peso:',
                     hintText: 'Ex: 70kg',
